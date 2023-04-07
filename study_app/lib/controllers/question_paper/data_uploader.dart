@@ -39,12 +39,13 @@ class DataUploader extends GetxController {
     var batch = firestore.batch();
     //loop though each qp
     for (var paper in questionPapers) {
-      /* takes data from questionpapermodel and sets it into firestore
+      /* takes data from questionpapermodel and  gives data to reference.dart
     for the collection questionpaper it creates documents which is named as each papers id 
     and then for each document it creates field like title,imageurl..and snd the data from 
-    question paper model to it
+    question paper model to it 
     batch.set(document,data)
      */
+    //create fields
       batch.set(questionPaperRF.doc(paper.id), {
         'title': paper.title,
         'image_url': paper.imageUrl,
@@ -52,8 +53,31 @@ class DataUploader extends GetxController {
         'time_seconds': paper.timeSeconds,
         'questions_count': paper.questions == null ? 0 : paper.questions!.length
       });
+      /*create another for loop for storing questions into firestore
+      these values are stored to question collection in references.dart
+      we have to pass documentnames of main collection and document names of subcollections too
+      */
+      for (var questions in paper.questions!) {
+        final questionPath =
+            questionRF(paperId: paper.id, questionId: questions.id);
+        //after creating documents it creates fields for each document
+        batch.set(questionPath, {
+          'question': questions.question,
+          'correct answer': questions.correctAnswer
+        });
+        /*  provides the document names of collection questions(questionpath) and create
+         a subcollection answersand the document names of the collection answers 
+        */
+        for(var answer in questions.answers){
+          batch.set(questionPath.collection('answers').doc(answer.identifier)
+          , {
+          'identifier':answer.identifier,
+          'answer':answer.answer
+          });
+
+        }
+      }
     }
-    //create another for loop for storing questions into firestore
 
     //submit everydata to firestore
     await batch.commit();
