@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 
 import 'package:study_app/controllers/question_paper/data_uploader.dart';
+import 'package:study_app/firebase_ref/loading_status.dart';
 
 class DataUploaderScreen extends StatelessWidget {
 
@@ -12,7 +13,12 @@ class DataUploaderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('uploading'),
+        /* to update the ui if the data has stored to firestore
+       when the observable value (loadingstatus) changes,the widget inside obx() widget rebuild
+       itself
+        */
+        child: Obx(() => Text(controller.loadingStatus.value==LoadingStatus.completed?
+        'uploading completed':'uploading.....')),
       ),
     );
   }

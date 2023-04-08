@@ -5,17 +5,24 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:study_app/firebase_ref/loading_status.dart';
 import 'package:study_app/firebase_ref/references.dart';
 import 'package:study_app/models/question_paper_model.dart';
 
 class DataUploader extends GetxController {
   @override
+  //this function is only called once in app when we restart
   void onReady() {
     uploadData();
     super.onReady();
   }
-
+  /*calling the members of enum and assigning to variables
+  obs allowsto update ui in response to  changes in state or data 
+  */
+final loadingStatus=LoadingStatus.loading.obs;
   Future<void> uploadData() async {
+    /*As we make the variable observable it has a property called value*/
+    loadingStatus.value=LoadingStatus.loading;//it has value 0
     //this instance is local reference to firestore which is used only once
     final firestore = FirebaseFirestore.instance;
     final manifestContent = await DefaultAssetBundle.of(Get.context!)
@@ -81,5 +88,7 @@ class DataUploader extends GetxController {
 
     //submit everydata to firestore
     await batch.commit();
+    //after data being uploaded to firestore  value changes from 0 to 1
+    loadingStatus.value=LoadingStatus.completed;//1
   }
 }
