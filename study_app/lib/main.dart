@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:study_app/bindings/initial_bindings.dart';
+import 'package:study_app/configs/themes/app_light_theme.dart';
 import 'package:study_app/data_uploader_screen.dart';
 import 'package:study_app/firebase_options.dart';
 import 'package:study_app/routes/app_routes.dart';
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //getx provides
     return GetMaterialApp(
+      //maintain a consistent look across an app
+       theme: LightTheme().buildLightTheme(),
+      debugShowCheckedModeBanner: false,
       getPages: AppRoutes.routes()
     );
   }
