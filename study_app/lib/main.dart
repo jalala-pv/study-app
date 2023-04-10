@@ -12,6 +12,7 @@ import 'package:study_app/screens/splash/splash_screen.dart';
 void main() {
   //it waits for all bindings to be done
   WidgetsFlutterBinding.ensureInitialized();
+  //instance of class intialbindings is initialbindings()
   InitialBindings().dependencies();
   runApp(MyApp());
 }

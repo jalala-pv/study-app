@@ -10,6 +10,9 @@ class AppCircleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      clipBehavior: Clip.hardEdge,
+      //the bakground circle color of icon changes to transparency
+      type: MaterialType.transparency,
       shape: const CircleBorder(),
       child: InkWell(
         onTap: (){},
