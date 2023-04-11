@@ -9,6 +9,8 @@ import 'package:study_app/routes/app_routes.dart';
 import 'package:study_app/screens/introduction/introduction.dart';
 import 'package:study_app/screens/splash/splash_screen.dart';
 
+import 'configs/themes/app_dark_theme.dart';
+
 //ui part
 void main() {
   //it waits for all bindings to be done

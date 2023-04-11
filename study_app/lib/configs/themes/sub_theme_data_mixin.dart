@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 //to inherit multiple classes in dart mixin
-mixin SubThemData {
+mixin SubThemeData {
   //text and themes of text in our app
   TextTheme getTextThemes() {
     return GoogleFonts.quicksandTextTheme(const TextTheme(
