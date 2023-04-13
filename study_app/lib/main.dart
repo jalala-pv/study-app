@@ -28,7 +28,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //getx provides
     return GetMaterialApp(
-      //maintain a consistent look across an app
+      /*maintain a consistent look across an app(theme)
+       to retrieve the controller which have already
+       been registered*/
       theme: Get.find<ThemeController>().lighttheme,
       debugShowCheckedModeBanner: false,
       getPages: AppRoutes.routes()

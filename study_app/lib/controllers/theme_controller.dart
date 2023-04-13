@@ -17,7 +17,7 @@ class ThemeController extends GetxController {
     _darkTheme = DarkTheme().buildDarkTheme();
     _lightTheme = LightTheme().buildLightTheme();
   }
-
+//to use these variables in other parts of app we use get
   ThemeData get darktheme => _darkTheme;
   ThemeData get lighttheme => _lightTheme;
 }
