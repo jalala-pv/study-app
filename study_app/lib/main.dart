@@ -10,6 +10,7 @@ import 'package:study_app/routes/app_routes.dart';
 import 'package:study_app/screens/introduction/introduction.dart';
 import 'package:study_app/screens/splash/splash_screen.dart';
 
+
 import 'configs/themes/app_dark_theme.dart';
 
 //ui part
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     //getx provides
     return GetMaterialApp(
       /*maintain a consistent look across an app(theme)

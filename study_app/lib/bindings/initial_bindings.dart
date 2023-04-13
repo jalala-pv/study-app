@@ -3,11 +3,14 @@ import 'package:get/get.dart';
 import 'package:study_app/controllers/auth_controller.dart';
 import 'package:study_app/controllers/theme_controller.dart';
 
+
+
 class InitialBindings implements Bindings{
   @override
   /*define the objects that particular screen requires,it include
    data model,controllers..*/
   void dependencies() {
+          
     //to register themecontroller
     Get.put(ThemeController());
   /*to register authcontroller and permanent is used to store this

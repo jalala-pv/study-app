@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:gap/gap.dart';
 import 'package:study_app/configs/themes/app_colors.dart';
 import 'package:study_app/widgets/app_circle_button.dart';
@@ -36,7 +35,7 @@ class AppIntroductionScreen extends StatelessWidget {
                 Icons.arrow_forward,
                 size: 35,
               ),
-              onTap: () => null,
+              onTap:   (){   Get.offAndToNamed('/home');   },
             )
           ],
         ),

@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:study_app/firebase_ref/loading_status.dart';
 import 'package:study_app/firebase_ref/references.dart';
 import 'package:study_app/models/question_paper_model.dart';
-
+//to store data to firestore
 class DataUploader extends GetxController {
   @override
   //this function is only called once in app when we restart

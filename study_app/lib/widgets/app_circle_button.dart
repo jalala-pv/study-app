@@ -15,7 +15,7 @@ class AppCircleButton extends StatelessWidget {
       type: MaterialType.transparency,
       shape: const CircleBorder(),
       child: InkWell(
-        onTap: (){},
+        onTap: onTap,
         child: child,
       ),
     );
