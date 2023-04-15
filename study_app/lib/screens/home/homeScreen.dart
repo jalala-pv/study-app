@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:study_app/controllers/question_paper/question_paper_controller.dart';
 
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -17,10 +18,11 @@ class HomeScreen extends StatelessWidget {
                 height: 200,
                 width: 200,
                 child: FadeInImage(
-                    placeholder:
-                        AssetImage('assets/images/app_splash_logo.png'),
-                    image: NetworkImage(
-                        _questionPaperController.allPaperImages[index])),
+                  image: NetworkImage(
+                    _questionPaperController.allPaperImages[index]),
+                  placeholder: AssetImage('assets/images/app_splash_logo.png'),
+                ),
+    
               ),
             );
           },

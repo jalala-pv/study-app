@@ -2,22 +2,21 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:study_app/bindings/initial_bindings.dart';
-import 'package:study_app/configs/themes/app_light_theme.dart';
+
 import 'package:study_app/controllers/theme_controller.dart';
-import 'package:study_app/data_uploader_screen.dart';
-import 'package:study_app/firebase_options.dart';
+
 import 'package:study_app/routes/app_routes.dart';
-import 'package:study_app/screens/introduction/introduction.dart';
-import 'package:study_app/screens/splash/splash_screen.dart';
 
 
-import 'configs/themes/app_dark_theme.dart';
+
+
 
 //ui part
-void main() {
+void main() async{
   //it waits for all bindings to be done
-  WidgetsFlutterBinding.ensureInitialized();
+  await WidgetsFlutterBinding.ensureInitialized();
   //instance of class intialbindings is initialbindings()
+   await Firebase.initializeApp();
   InitialBindings().dependencies();
   runApp(MyApp());
 }

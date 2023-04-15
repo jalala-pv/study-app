@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 //this instance is global and used throughout the app
 final fireStore=FirebaseFirestore.instance;
 /*when we invoke the variable questionPaperRF it will go the firestore and 
@@ -11,3 +12,6 @@ DocumentReference questionRF({
   required String paperId,
   required String questionId,
 })=>questionPaperRF.doc(paperId).collection('questions').doc(questionId);
+
+//to create a reference to firebase storage
+Reference get firebaseStorage => FirebaseStorage.instance.ref();
